@@ -213,6 +213,6 @@ Accuracy:
 
 ## 👩‍💻 Author
 
-**Nandhini**
+**Nandhini M**
 
 AI-SEM Image Localization Project
