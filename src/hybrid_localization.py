@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import math
 
 
 # ==========================
@@ -196,10 +197,55 @@ print("Final Prediction:")
 print(final_x, final_y)
 print("--------------------")
 
+
 print(
     "Matching Score:",
     max_val
 )
+
+
+
+# ==========================
+# Confidence Score
+# ==========================
+
+confidence = (
+    (inliers / len(good_matches)) * 100
+)
+
+
+print("--------------------")
+print("Confidence Score:")
+print(round(confidence,2), "%")
+print("--------------------")
+
+
+
+# ==========================
+# Navigation Error Calculation
+# ==========================
+
+# Ground Truth Coordinate
+gt_x = 725
+gt_y = 450
+
+
+navigation_error = math.sqrt(
+    (gt_x - final_x)**2 +
+    (gt_y - final_y)**2
+)
+
+
+
+print("--------------------")
+print("Ground Truth:")
+print(gt_x, gt_y)
+
+print("--------------------")
+print("Navigation Error:")
+print(round(navigation_error,2), "pixels")
+
+print("--------------------")
 
 
 
@@ -286,12 +332,32 @@ cv2.putText(
 
 
 
+# Confidence text
+
+conf_text = (
+    f"Confidence:{confidence:.1f}%"
+)
+
+
+cv2.putText(
+    output,
+    conf_text,
+    (50,90),
+    cv2.FONT_HERSHEY_SIMPLEX,
+    1,
+    (255,255,255),
+    2
+)
+
+
+
 # Save result
 
 cv2.imwrite(
     "dataset/hybrid_result.png",
     output
 )
+
 
 
 print("--------------------")
