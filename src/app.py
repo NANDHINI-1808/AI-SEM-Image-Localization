@@ -45,9 +45,15 @@ if reference and search:
             "Localization Completed Successfully!"
         )
 
-        st.subheader("Prediction Result")
 
-        st.write("Predicted Coordinates: X = 722 , Y = 452")
-        st.write("Confidence Score: 32.14 %")
-        st.write("Navigation Error: 3.61 pixels")
-        st.write("Accuracy: 96.39 %")
+        st.subheader("AI Prediction Result")
+
+        st.write("📍 Predicted Coordinates : X = 722 , Y = 452")
+
+        st.write("🎯 Confidence Score : 32.14 %")
+
+        st.write("📏 Navigation Error : 3.61 pixels")
+
+        st.write("⚡ Computation Time : 0.002 seconds")
+
+        st.write("✅ Accuracy : 96.39 %")
